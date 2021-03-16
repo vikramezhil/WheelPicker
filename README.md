@@ -5,7 +5,7 @@ Android Wheel Picker library
 <b>Supports from Android SDK version 16 and above</b>.
 
 <b><h1>About</h1></b>
-Android doesn't have an inbuilt wheel picker view, so this was build to provide similair features like its iOS counterpart.<br/>This library provides two types of wheel picker views - Vertical and Horizontal.
+Android doesn't have an inbuilt wheel picker view, so this was build to provide similair features like its iOS counterpart.<br/><br/>This library provides two types of wheel picker views - Vertical and Horizontal.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/12429051/111363712-5a2cfe00-86b6-11eb-9b55-790cdbb81d9a.jpg" width="200"/>
