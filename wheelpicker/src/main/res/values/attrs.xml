@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WheelPicker">
+        <!-- General -->
+        <attr name="wheelPickerBgColor" format="color"/>
+        <attr name="wheelPickerDividerColor" format="color"/>
+        <attr name="wheelPickerOrientationVertical" format="boolean"/>
+        <attr name="wheelPickerInfiniteScrolling" format="boolean"/>
+        <attr name="wheelPickerScaleDownEnabled" format="boolean"/>
+        <attr name="wheelPickerShowDivider" format="boolean"/>
+
+        <!-- Items -->
+        <attr name="wheelPickerItems" format="reference"/>
+        <attr name="wheelPickerItemsTextStyle" format="reference"/>
+        <attr name="wheelPickerItemsTextSize" format="dimension"/>
+        <attr name="wheelPickerItemsTextBold" format="boolean"/>
+        <attr name="wheelPickerItemsTextItalic" format="boolean"/>
+        <attr name="wheelPickerItemsUnselectedTextAlpha" format="float"/>
+
+        <!-- Item -->
+        <attr name="wheelPickerDefaultSelectedItemPos" format="integer"/>
+        <attr name="wheelPickerItemSelectedBgColor" format="color"/>
+        <attr name="wheelPickerItemSelectedTextColor" format="color"/>
+        <attr name="wheelPickerItemUnselectedBgColor" format="color"/>
+        <attr name="wheelPickerItemUnselectedTextColor" format="color"/>
+    </declare-styleable>
+</resources>

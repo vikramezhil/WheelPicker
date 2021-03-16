@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_wp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@android:color/transparent">
+
+    <View
+        android:id="@+id/wp_top_border"
+        android:layout_width="@dimen/wp_divider_height"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/wp_item"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/wp_item_height"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:background="@android:color/transparent"
+        tools:text="@string/view_name"/>
+
+    <View
+        android:id="@+id/wp_bottom_border"
+        android:layout_width="@dimen/wp_divider_height"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@android:color/black"/>
+</LinearLayout>
