@@ -1,6 +1,7 @@
 package com.github.vikramezhil.wheelpicker.view
 
 import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -9,13 +10,13 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout.HORIZONTAL
 import android.widget.LinearLayout.VERTICAL
 import androidx.annotation.AttrRes
+import androidx.lifecycle.LifecycleOwner
 import com.github.vikramezhil.wheelpicker.R
 import com.github.vikramezhil.wheelpicker.adapter.WPAdapter
 import com.github.vikramezhil.wheelpicker.databinding.PickerWheelBinding
 import com.github.vikramezhil.wheelpicker.manager.WPSliderManager
 import com.github.vikramezhil.wheelpicker.props.OnWheelPickerListener
 import com.github.vikramezhil.wheelpicker.props.WheelPickerProperties
-import com.github.vikramezhil.wheelpicker.utils.getLifeCycleOwner
 import java.lang.Exception
 
 /**
@@ -31,7 +32,7 @@ class WheelPicker@JvmOverloads constructor(context: Context, attrs: AttributeSet
     private var onWheelPickerListener: OnWheelPickerListener? = null
 
     init {
-        rootView.getLifeCycleOwner()?.let { binding.lifecycleOwner = it }
+        getLifeCycleOwner()?.let { binding.lifecycleOwner = it }
 
         attrs?.let {
             val typedArray = context.theme.obtainStyledAttributes(it, R.styleable.WheelPicker, 0, 0)
@@ -105,6 +106,23 @@ class WheelPicker@JvmOverloads constructor(context: Context, attrs: AttributeSet
         }
 
         properties.visibility = visibility
+    }
+
+    /**
+     * Gets the view lifecycle owner
+     * @return The lifecycle owner attached to the view
+     */
+    private fun getLifeCycleOwner(): LifecycleOwner? {
+        var viewContext = rootView.context
+        while (viewContext is ContextWrapper) {
+            if (viewContext is LifecycleOwner) {
+                return viewContext
+            }
+
+            viewContext = viewContext.baseContext
+        }
+
+        return null
     }
 
     /**
