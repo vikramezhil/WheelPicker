@@ -39,15 +39,6 @@ class WPAdapter(private var context: Context, private var props: WheelPickerProp
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemSelected = (position == props.selectedItemPos && props.enableItemHighlight && !props.scrolling)
 
-        if (props.itemsTextStyle != 0) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                holder.itemVal.setTextAppearance(props.itemsTextStyle)
-            } else {
-                @Suppress("DEPRECATION")
-                holder.itemVal.setTextAppearance(context, props.itemsTextStyle)
-            }
-        }
-
         holder.llPicker.tag = position
         holder.llPicker.setBackgroundColor(if (itemSelected) props.selectedItemBgColor else props.unselectedItemBgColor)
         holder.llPicker.setOnClickListener {
@@ -64,10 +55,19 @@ class WPAdapter(private var context: Context, private var props: WheelPickerProp
         if (props.orientation == VERTICAL) { params.width = props.height } else { params.height = props.height }
         holder.itemVal.layoutParams = params
         holder.itemVal.text = props.itemsList[position]
+        holder.itemVal.textSize = props.itemsTxtSize
+
+        if (props.itemsTextStyle != 0) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                holder.itemVal.setTextAppearance(props.itemsTextStyle)
+            } else {
+                @Suppress("DEPRECATION")
+                holder.itemVal.setTextAppearance(context, props.itemsTextStyle)
+            }
+        }
 
         holder.itemVal.setTextColor(if (itemSelected) props.selectedItemTxtColor else props.unselectedItemTxtColor)
         holder.itemVal.alpha = if (itemSelected) props.selectedItemTxtAlpha else props.unselectedItemsTxtAlpha
-        holder.itemVal.textSize = props.itemsTxtSize
 
         if (props.itemsTxtBold && !props.itemsTxtItalic) holder.itemVal.setTypeface(holder.itemVal.typeface, Typeface.BOLD)
 
