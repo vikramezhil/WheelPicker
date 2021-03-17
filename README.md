@@ -30,7 +30,7 @@ Add this to your app build.gradle:
 
 ```java
 dependencies {
-    compile 'com.github.vikramezhil.WheelPicker:1.0.0'
+    compile 'com.github.vikramezhil.WheelPicker:1.0.2'
 }
 ```
 
@@ -53,7 +53,7 @@ Add the following to the <dependencies> section of your pom.xml:
 <dependency>
     <groupId>com.github.vikramezhil</groupId>
     <artifactId>WheelPicker</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
