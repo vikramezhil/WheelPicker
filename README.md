@@ -30,7 +30,7 @@ Add this to your app build.gradle:
 
 ```java
 dependencies {
-    compile 'com.github.vikramezhil.WheelPicker:1.0.3'
+    compile 'com.github.vikramezhil:WheelPicker:1.0.3'
 }
 ```
 
