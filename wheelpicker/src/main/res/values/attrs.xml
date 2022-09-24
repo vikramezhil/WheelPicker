@@ -2,7 +2,7 @@
 <resources>
     <declare-styleable name="WheelPicker">
         <!-- General -->
-        <attr name="wheelPickerBgColor" format="color"/>
+        <attr name="wheelPickerBg" format="reference|color"/>
         <attr name="wheelPickerDividerColor" format="color"/>
         <attr name="wheelPickerOrientationVertical" format="boolean"/>
         <attr name="wheelPickerInfiniteScrolling" format="boolean"/>

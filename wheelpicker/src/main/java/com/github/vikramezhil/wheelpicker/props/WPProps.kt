@@ -2,6 +2,8 @@ package com.github.vikramezhil.wheelpicker.props
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.LinearLayout.HORIZONTAL
 import com.github.vikramezhil.wheelpicker.R
@@ -11,13 +13,13 @@ data class WheelPickerProperties(
 
     var itemsList: ArrayList<String> = ArrayList(),
 
-    var bgColor: Int = Color.BLACK,
+    var background: Drawable = ColorDrawable(),
 
-    var selectedItemBgColor: Int = Color.BLACK,
+    var selectedItemBgColor: Int = Color.TRANSPARENT,
 
     var selectedItemTxtColor: Int = Color.WHITE,
 
-    var unselectedItemBgColor: Int = Color.BLACK,
+    var unselectedItemBgColor: Int = Color.TRANSPARENT,
 
     var unselectedItemTxtColor: Int = Color.WHITE,
 

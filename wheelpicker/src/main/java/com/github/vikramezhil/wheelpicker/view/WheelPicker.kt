@@ -2,7 +2,6 @@ package com.github.vikramezhil.wheelpicker.view
 
 import android.content.Context
 import android.content.ContextWrapper
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -39,8 +38,8 @@ class WheelPicker@JvmOverloads constructor(context: Context, attrs: AttributeSet
 
             try {
                 // General
-                properties.bgColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerBgColor, Color.BLACK)
-                properties.dividerColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerDividerColor, Color.WHITE)
+                properties.background = typedArray.getDrawable(R.styleable.WheelPicker_wheelPickerBg) ?: properties.background
+                properties.dividerColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerDividerColor, properties.dividerColor)
                 properties.orientation = if(typedArray.getBoolean(R.styleable.WheelPicker_wheelPickerOrientationVertical, false)) {
                     VERTICAL
                 } else {
@@ -61,10 +60,10 @@ class WheelPicker@JvmOverloads constructor(context: Context, attrs: AttributeSet
 
                 // Item
                 properties.selectedItemPos = typedArray.getInt(R.styleable.WheelPicker_wheelPickerDefaultSelectedItemPos, 0)
-                properties.selectedItemBgColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemSelectedBgColor, properties.bgColor)
-                properties.selectedItemTxtColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemSelectedTextColor, Color.WHITE)
-                properties.unselectedItemBgColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemUnselectedBgColor, properties.bgColor)
-                properties.unselectedItemTxtColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemUnselectedTextColor, Color.WHITE)
+                properties.selectedItemBgColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemSelectedBgColor, properties.selectedItemBgColor)
+                properties.selectedItemTxtColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemSelectedTextColor, properties.selectedItemTxtColor)
+                properties.unselectedItemBgColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemUnselectedBgColor, properties.unselectedItemBgColor)
+                properties.unselectedItemTxtColor = typedArray.getInt(R.styleable.WheelPicker_wheelPickerItemUnselectedTextColor, properties.unselectedItemTxtColor)
             } catch (e: Exception) {
                 e.printStackTrace()
             } finally {
@@ -75,9 +74,8 @@ class WheelPicker@JvmOverloads constructor(context: Context, attrs: AttributeSet
         // Setting the minimum height
         binding.wheelPicker.minimumHeight = properties.height
 
-        // Setting the wheel picker background color
-        binding.wheelPicker.setBackgroundColor(properties.bgColor)
-
+        // Setting the wheel picker background
+        binding.wheelPicker.background = properties.background
         initWheelPicker()
     }
 
